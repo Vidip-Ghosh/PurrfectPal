@@ -112,7 +112,7 @@ export default function Profile() {
                       petType={category}
                       petBreed={breed}
                       petAge={new Date().getFullYear() - birth_year}
-                      profile={IMG_BASE_URL + profile_img}
+                      profile={profile_img}
                       toast={toast}
                     />
                   )

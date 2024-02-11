@@ -32,11 +32,10 @@ class PetsView(APIView):
     if pet_serializer.is_valid():
       image_url = upload_image(profile_img)
       data = {
-        "id": data.get("id"),
         "name": data.get("name"),
         "breed": data.get("breed"),
         "category": data.get("category"),
-        "birth_year": data.get("birth_year"),
+        "birth_year": int(data.get("birth_year")),
         "interests": data.get("interests"),
         "precautions": data.get("precautions"),
         "user_ref": {"connect": {"id": request.user.id}},
@@ -44,9 +43,9 @@ class PetsView(APIView):
         "profile_img": image_url,
         "open_to_adopt": False,
       }
-
       response = make_request("POST", "rest/pet/__one", data)
       data = response.json()
+      print(data)
       
       return Response(data.get("data"), status=status.HTTP_201_CREATED)
     print(pet_serializer.errors)

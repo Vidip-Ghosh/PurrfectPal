@@ -37,13 +37,13 @@ export default function Petfolio() {
   if (!online) {
     return <Offline />;
   }
-
+  console.log("Pet Details = ", petDetails);
   return (
     <>
     <Cursor/>
       {petDetails ? (
         <div className="bg-[#919177] w-full min-h-screen flex items-center">
-          <main className="w-[95%] xl:w-[80%] 2xl:w-[60%] mt-[5rem] vsm:mt-[7rem] gsm:mt-[10rem] mb-[2rem] gsm:mb-[5rem] flex flex-col justify-center items-center mx-auto">
+          <main className="w-[95%] xl:w-[70%] mt-[5rem] vsm:mt-[7rem] gsm:mt-[10rem] mb-[2rem] gsm:mb-[5rem] flex flex-col justify-center items-center mx-auto">
             <SectionHeading heading="Petfolio" styles="inline" />
             <PetBioCard
               petDetails={petDetails}
